@@ -24,16 +24,20 @@ const todoSlice = createSlice({
       state.filter = action.payload;
     },
 
-    todoAdded:(state,action)=>{
-        const {title,done}=action.payload
-        state.todo.push({
-          id: nanoid(),
-          title,
-          done,
-        });
-    }
+    todoAdded: (state, action) => {
+      const { title, done } = action.payload;
+      state.todo.push({
+        id: nanoid(),
+        title,
+        done,
+      });
+    },
+    todoDeleted: (state, action) => {
+      const { id } = action.payload;
+      state.todo = state.todo.filter((todo) => todo.id !== id);
+    },
   },
 });
 
-export const { setFilter, todoAdded } = todoSlice.actions;
+export const { setFilter, todoAdded, todoDeleted } = todoSlice.actions;
 export default todoSlice.reducer;

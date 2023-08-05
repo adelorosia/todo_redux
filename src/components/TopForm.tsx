@@ -15,9 +15,9 @@ const TopForm = () => {
   };
   const addFilterToTheList = () => {
     if (filter !== "") {
-      setDone(false);
-      setTitle(filter);
-      console.log(title);
+      // setDone(false);
+      // setTitle(filter);
+      // console.log(title);
       const newList = { title, done };
       dispatch(todoAdded(newList));
       dispatch(setFilter(""));
